@@ -75,21 +75,7 @@ namespace IdentityServer.Controllers
 
                 AuthenticationProperties props = null;
                 await HttpContext.SignInAsync(user.Id, user.UserName, props);
-
-                //accessToken = await HttpContext.GetTokenAsync("access_token"); Will come back to fix
-
-                // Now you can use them. For more info on when and how to use the 
-                // access_token and id_token, see https://auth0.com/docs/tokens
-
-
-                Dictionary<string, string> list = new Dictionary<string, string>();
-                foreach (var prop in (await HttpContext.AuthenticateAsync()).Properties.Items)
-                {
-                    list.Add(prop.Key, prop.Value);
-                }
-
-                //return Redirect(model.ReturnUrl);
-                return Ok(accessToken);
+                return Ok();
 
             }
             await _events.RaiseAsync(new UserLoginFailureEvent(model.Email, "invalid credentials"));

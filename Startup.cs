@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using System.Net;
 using IdentityServer.Infrastructure.Data.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using IdentityServer.Infrastructure.Middleware;
+using Serilog;
+using IdentityServer.Infrastructure.Services;
 
 namespace IdentityServer
 {
@@ -52,6 +55,9 @@ namespace IdentityServer
                   .AddInMemoryClients(Config.GetClients())
                   .AddAspNetIdentity<AppUser>();
 
+            services.AddTransient<IProfileService, IdentityClaimsProfileService>();
+
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = "Cookies";
@@ -83,16 +89,16 @@ namespace IdentityServer
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            //app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSerilogRequestLogging();
             app.UseRouting();
 
             app.UseAuthentication();
-
+            
             app.UseCors(options => options.WithOrigins("*"));
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

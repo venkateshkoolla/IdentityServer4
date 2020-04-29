@@ -36,9 +36,9 @@ namespace IdentityServer
                     ClientId = "angular_southindianvillage_admin",
                     ClientName = "SouthIndianVillageAdmin",
                     //ClientSecrets = { new Secret("secret") },
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = { "openid", "profile", "email", "api.read"}, // To be checked
-                    RedirectUris = {"http://localhost:4001/customers"}, 
+                    RedirectUris = {"http://localhost:4001/Customers"}, 
                     PostLogoutRedirectUris = {"http://localhost:4001/"},
                     AllowedCorsOrigins = {"http://localhost:4001"},
                     AllowAccessTokensViaBrowser = true, // need to check..
