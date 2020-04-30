@@ -21,17 +21,22 @@ namespace IdentityServer.Controllers
     public class AccountController : ControllerBase
     {
         private UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly IEventService _events;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IAuthenticationService _authenticationService;
 
-
-        public AccountController(UserManager<AppUser> userManager, IEventService events, IIdentityServerInteractionService interactionService, IAuthenticationService authenticationService)
+        public AccountController(UserManager<AppUser> userManager,
+            IEventService events, 
+            IIdentityServerInteractionService interactionService, 
+            IAuthenticationService authenticationService,
+            SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _events = events;
             _interaction = interactionService;
             _authenticationService = authenticationService;
+            _signInManager = signInManager;
         }
 
         [HttpPost]
@@ -81,6 +86,14 @@ namespace IdentityServer.Controllers
             await _events.RaiseAsync(new UserLoginFailureEvent(model.Email, "invalid credentials"));
             //ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
             return BadRequest(ModelState);
+        }
+
+        [HttpGet("{[action]}")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            //var context = await _interaction.GetLogoutContextAsync(logoutId);
+            return Ok("http://localhost:4001/");
         }
     }
 }
