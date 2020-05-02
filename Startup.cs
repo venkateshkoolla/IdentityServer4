@@ -1,19 +1,12 @@
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System.Net;
 using IdentityServer.Infrastructure.Data.Identity;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using IdentityServer.Infrastructure.Middleware;
 using Serilog;
 using IdentityServer.Infrastructure.Services;
 
@@ -52,7 +45,7 @@ namespace IdentityServer
                   })
                   .AddInMemoryIdentityResources(Config.GetIdentityResources())
                   .AddInMemoryApiResources(Config.GetApiResources())
-                  .AddInMemoryClients(Config.GetClients())
+                  .AddInMemoryClients(Config.GetClients(Configuration))
                   .AddAspNetIdentity<AppUser>();
 
             services.AddTransient<IProfileService, IdentityClaimsProfileService>();
@@ -66,7 +59,7 @@ namespace IdentityServer
                .AddCookie("Cookies")
                .AddOpenIdConnect("oidc", options =>
                {
-                   options.Authority = "http://localhost:44393";
+                   options.Authority = Configuration["SouthIndianVillage:Authority"];
                    options.RequireHttpsMetadata = false;
                    options.ClientId = "angular_southindianvillage_admin";
                    //options.ClientSecret = "secret";
@@ -107,7 +100,7 @@ namespace IdentityServer
             });
 
             app.UseIdentityServer();
-            app.UseCors(options => options.WithOrigins("http://localhost:4001").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
         }
     }

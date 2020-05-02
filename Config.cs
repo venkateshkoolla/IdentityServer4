@@ -1,5 +1,6 @@
 ﻿using IdentityServer4.Models;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace IdentityServer
 {
@@ -26,7 +27,7 @@ namespace IdentityServer
             };
         }
 
-        public static IEnumerable<Client> GetClients()
+        public static IEnumerable<Client> GetClients(Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
             return new[]
             {
@@ -38,9 +39,9 @@ namespace IdentityServer
                     //ClientSecrets = { new Secret("secret") },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = { "openid", "profile", "email", "api.read"}, // To be checked
-                    RedirectUris = {"http://localhost:4001/Customers"}, 
-                    PostLogoutRedirectUris = {"http://localhost:4001/"},
-                    AllowedCorsOrigins = {"http://localhost:4001"},
+                    RedirectUris = {configuration["SouthIndianVillage:RedirectUris"] },
+                    PostLogoutRedirectUris = {configuration["SouthIndianVillage:PostLogoutRedirectUris"] },
+                    AllowedCorsOrigins = { configuration["SouthIndianVillage:AllowedOrigins"]},
                     AllowAccessTokensViaBrowser = true, // need to check..
                     AccessTokenLifetime = 3600, // 1 hour
                     //AlwaysIncludeUserClaimsInIdToken = true

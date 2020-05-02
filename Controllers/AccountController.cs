@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using IdentityServer.Infrastructure.Constants;
 using IdentityServer.Infrastructure.Data.Identity;
 using IdentityServer.Models;
@@ -12,6 +9,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace IdentityServer.Controllers
 {
@@ -25,18 +23,20 @@ namespace IdentityServer.Controllers
         private readonly IEventService _events;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IAuthenticationService _authenticationService;
-
+        private readonly IConfiguration _configuration;
         public AccountController(UserManager<AppUser> userManager,
             IEventService events, 
             IIdentityServerInteractionService interactionService, 
             IAuthenticationService authenticationService,
-            SignInManager<AppUser> signInManager)
+            SignInManager<AppUser> signInManager,
+            Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
             _userManager = userManager;
             _events = events;
             _interaction = interactionService;
             _authenticationService = authenticationService;
             _signInManager = signInManager;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -93,7 +93,7 @@ namespace IdentityServer.Controllers
         {
             await _signInManager.SignOutAsync();
             //var context = await _interaction.GetLogoutContextAsync(logoutId);
-            return Ok("http://localhost:4001/");
+            return Ok(_configuration["SouthIndianVilalge:PostLogoutRedirectUris"]);
         }
     }
 }
