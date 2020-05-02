@@ -32,7 +32,7 @@ namespace IdentityServer
             services.AddControllersWithViews();
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            services.AddIdentity<AppUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<AppIdentityDbContext>()
                     .AddDefaultTokenProviders();
 
@@ -46,7 +46,7 @@ namespace IdentityServer
                   .AddInMemoryIdentityResources(Config.GetIdentityResources())
                   .AddInMemoryApiResources(Config.GetApiResources())
                   .AddInMemoryClients(Config.GetClients(Configuration))
-                  .AddAspNetIdentity<AppUser>();
+                  .AddAspNetIdentity<ApplicationUser>();
 
             services.AddTransient<IProfileService, IdentityClaimsProfileService>();
 

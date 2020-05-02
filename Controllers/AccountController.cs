@@ -18,17 +18,17 @@ namespace IdentityServer.Controllers
     [EnableCors("AllowOrigin")]
     public class AccountController : ControllerBase
     {
-        private UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
+        private UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEventService _events;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IAuthenticationService _authenticationService;
         private readonly IConfiguration _configuration;
-        public AccountController(UserManager<AppUser> userManager,
+        public AccountController(UserManager<ApplicationUser> userManager,
             IEventService events, 
             IIdentityServerInteractionService interactionService, 
             IAuthenticationService authenticationService,
-            SignInManager<AppUser> signInManager,
+            SignInManager<ApplicationUser> signInManager,
             Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
             _userManager = userManager;
@@ -49,7 +49,7 @@ namespace IdentityServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new AppUser { UserName = model.Email, Name = model.Name, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Name = model.Name, Email = model.Email };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
