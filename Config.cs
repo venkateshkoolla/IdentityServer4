@@ -43,7 +43,7 @@ namespace IdentityServer
                     PostLogoutRedirectUris = {configuration["SouthIndianVillage:PostLogoutRedirectUris"] },
                     AllowedCorsOrigins = { configuration["SouthIndianVillage:AllowedOrigins"]},
                     AllowAccessTokensViaBrowser = true, // need to check..
-                    AccessTokenLifetime = 3600, // 1 hour
+                    AccessTokenLifetime = 1800, // 1 hour
                     //AlwaysIncludeUserClaimsInIdToken = true
                 }
             };
