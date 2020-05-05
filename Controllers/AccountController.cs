@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using IdentityServer.Infrastructure.Constants;
-using IdentityServer.Infrastructure.Data.Identity;
+using IdentityServer.Constants;
+using IdentityServer.Data.Identity;
 using IdentityServer.Models;
 using IdentityServer4.Events;
 using IdentityServer4.Services;

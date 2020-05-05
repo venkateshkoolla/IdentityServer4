@@ -1,4 +1,4 @@
-﻿using IdentityServer.Infrastructure.Data.Identity;
+﻿using IdentityServer.Data.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

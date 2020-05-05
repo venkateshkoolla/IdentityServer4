@@ -1,15 +1,9 @@
-C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csprojAssemblyReference.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CoreCompileInputs.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorAssemblyInfo.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorAssemblyInfo.cs
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure.deps.json
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure.runtimeconfig.dev.json
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure.runtimeconfig.json
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure\obj\IdentityServer.Infrastructure.csproj.nuget.dgspec.json
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure\obj\project.assets.json
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.exe
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.deps.json
@@ -152,8 +146,6 @@ C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.d
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure.dll
-C:\Projects\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Infrastructure.pdb
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.TagHelpers.input.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.TagHelpers.output.cache
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorCoreGenerate.cache
@@ -173,3 +165,5 @@ C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServe
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
 C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
+C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfoInputs.cache
+C:\Projects\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfo.cs
