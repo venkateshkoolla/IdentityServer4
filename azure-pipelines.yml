@@ -11,7 +11,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -38,8 +38,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '$(solution)'
+    projects: '**\*.sln'
     outputDir: '$(Build.ArtifactStagingDirectory)'
+    arguments: --output $(Build.ArtifactStagingDirectory)
 
 - task: CopyFiles@2
   inputs:
